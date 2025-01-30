@@ -20,4 +20,3 @@ This project serves as a learning experience for mastering React Native by devel
 - Frontend: React Native, TypeScript
 - State Management: React Context API / Zustand / Redux (TBD)
 - Navigation: React Navigation
-- Storage: AsyncStorage / SQLite / Firebase (TBD)
