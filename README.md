@@ -1,6 +1,7 @@
 # Expense Tracker
 
 ## Overview
+
 Expense Tracker is a mobile application designed to help users monitor and manage their expenses efficiently. With this app, users can track their daily spending habits, categorize expenses, and gain insights into their financial health
 
 ## Purpose
