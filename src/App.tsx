@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'react-native';
 import ManageExpense from './screens/ManageExpense';
@@ -8,6 +8,7 @@ import AllExpenses from './screens/AllExpenses';
 import { GlobalStyles } from './constants/styles';
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
+import IconButton from './components/ui/IconButton';
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -15,12 +16,22 @@ const BottomTabs = createBottomTabNavigator();
 const ExpensesOverview = () => {
 	return (
 		<BottomTabs.Navigator
-			screenOptions={{
+			screenOptions={({ navigation }) => ({
 				headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
 				headerTintColor: 'white',
 				tabBarStyle: { backgroundColor: GlobalStyles.colors.primary500 },
 				tabBarActiveTintColor: GlobalStyles.colors.accent500,
-			}}
+				headerRight: ({ tintColor }) => (
+					<IconButton
+						icon="add"
+						size={24}
+						color={tintColor}
+						onPress={() => {
+							navigation.navigate('ManageExpense');
+						}}
+					/>
+				),
+			})}
 		>
 			<BottomTabs.Screen
 				name="RecentExpenses"
@@ -52,13 +63,24 @@ const App = () => {
 		<>
 			<StatusBar barStyle="default" />
 			<NavigationContainer>
-				<Stack.Navigator>
+				<Stack.Navigator
+					screenOptions={{
+						headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+						headerTintColor: 'white',
+					}}
+				>
 					<Stack.Screen
 						name="ExpensesOverView"
 						component={ExpensesOverview}
 						options={{ headerShown: false }}
 					/>
-					<Stack.Screen name="ManageExpense" component={ManageExpense} />
+					<Stack.Screen
+						name="ManageExpense"
+						component={ManageExpense}
+						options={{
+							presentation: 'modal',
+						}}
+					/>
 				</Stack.Navigator>
 			</NavigationContainer>
 		</>
