@@ -11,13 +11,13 @@ const DUMMY_EXPENSES = [
 		id: 'e2',
 		description: 'New laptop',
 		amount: 1299.99,
-		date: new Date('2022-07-01'),
+		date: new Date('2025-02-10'),
 	},
 	{
 		id: 'e3',
 		description: 'some Bananas',
 		amount: 19.99,
-		date: new Date('2022-06-20'),
+		date: new Date('2025-02-10'),
 	},
 	{
 		id: 'e4',
@@ -29,7 +29,7 @@ const DUMMY_EXPENSES = [
 		id: 'e5',
 		description: 'New headphones',
 		amount: 149.99,
-		date: new Date('2022-05-25'),
+		date: new Date('2025-02-10'),
 	},
 	{
 		id: 'e6',
@@ -81,7 +81,6 @@ const expensesReducer = (state, action) => {
 			const updatableExpenseIndex = state.findIndex(
 				(expense) => expense.id === action.payload.id
 			);
-
 			const updatableExpense = state[updatableExpenseIndex];
 			const updateItem = { ...updatableExpense, ...action.payload.data };
 			const updatedExpenseData = [...state];
