@@ -10,6 +10,7 @@ import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import IconButton from './components/ui/IconButton';
 import { ExpenseContextProvider } from './store/expense_context';
+import '../global.css';
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
