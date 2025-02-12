@@ -6,3 +6,9 @@ export const getFormattedDate = (date: Date) => {
 	};
 	return new Intl.DateTimeFormat('en-US', options).format(date);
 };
+
+export const getDateMinusDays = (date: Date) => {
+	const newDate = new Date(date);
+	newDate.setDate(newDate.getDate() - 7);
+	return newDate;
+};
