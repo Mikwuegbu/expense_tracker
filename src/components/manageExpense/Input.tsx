@@ -20,7 +20,7 @@ const Input = ({ label, textInputConfig }: InputProps) => {
 	}
 
 	return (
-		<View className="mb-4">
+		<View className="mb-4 ">
 			<Text style={styles.label}>{label}</Text>
 			<TextInput style={styles.input} {...textInputConfig} />
 		</View>
